@@ -37,6 +37,6 @@ public class NestMessageSourceAutoConfiguration extends MessageSourceAutoConfigu
     return new NestMessageSource(super.messageSource());
   }
 
-  protected class ResourceBundleCondition extends MessageSourceAutoConfiguration.ResourceBundleCondition {
+  protected static class ResourceBundleCondition extends MessageSourceAutoConfiguration.ResourceBundleCondition {
   }
 }
