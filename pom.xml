@@ -12,11 +12,16 @@
 	<packaging>pom</packaging>
 	<name>Nest Message Spring Boot Parent</name>
 	<description>Nest Message Spring Boot Parent</description>
-	<url>${repository.url}</url>
+	<url>https://github.com/XDean/nest-message-spring-boot-parent</url>
+
+	<modules>
+		<module>nest-message-spring-boot</module>
+		<module>nest-message-spring-boot-starter</module>
+	</modules>
 
 	<scm>
-		<connection>scm:${scm.url}</connection>
-		<developerConnection>scm:${scm.url}</developerConnection>
-		<url>${scm.url}</url>
+		<connection>scm:git@github.com:XDean/nest-message-spring-boot-parent.git</connection>
+		<developerConnection>scm:git@github.com:XDean/nest-message-spring-boot-parent.git</developerConnection>
+		<url>git@github.com:XDean/nest-message-spring-boot-parent.git</url>
 	</scm>
 </project>
