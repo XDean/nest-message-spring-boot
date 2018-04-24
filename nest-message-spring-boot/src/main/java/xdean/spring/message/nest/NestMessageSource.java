@@ -21,12 +21,6 @@ import lombok.RequiredArgsConstructor;
 public class NestMessageSource implements MessageSource {
   private final MessageSource delegate;
   private final NestMessageSourceProperties prop;
-  // private String prefix = "$(";
-  // private String suffix = ")";
-  // private String splitor = ",";
-  // private String argPrefix = "$";
-  // private String escaper = "\\";
-  // private String quoter = "\"";
 
   public NestMessageSource(MessageSource delegate) {
     this(delegate, new NestMessageSourceProperties());

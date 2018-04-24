@@ -5,13 +5,10 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.SearchStrategy;
 import org.springframework.boot.autoconfigure.context.MessageSourceAutoConfiguration;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.MessageSource;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 
 import xdean.spring.auto.AutoSpringFactories;
 import xdean.spring.message.nest.NestMessageSourceAutoConfiguration.ResourceBundleCondition;
@@ -22,18 +19,7 @@ import xdean.spring.message.nest.NestMessageSourceAutoConfiguration.ResourceBund
 @AutoConfigureBefore(MessageSourceAutoConfiguration.class)
 @AutoSpringFactories(EnableAutoConfiguration.class)
 @EnableConfigurationProperties
-public class NestMessageSourceAutoConfiguration extends MessageSourceAutoConfiguration {
-  @Bean
-  @ConfigurationProperties(prefix = "xdean.message.nest")
-  public NestMessageSourceProperties nestMessageSourceProperties() {
-    return new NestMessageSourceProperties();
-  }
-
-  @Bean
-  @Primary
-  public NestMessageSource nestMessageSource() {
-    return new NestMessageSource(this.messageSource());
-  }
+public class NestMessageSourceAutoConfiguration extends NestMessageConfiguration {
 
   protected static class ResourceBundleCondition extends MessageSourceAutoConfiguration.ResourceBundleCondition {
   }
