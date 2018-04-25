@@ -4,24 +4,22 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.Locale;
 
-import org.junit.Before;
 import org.junit.Test;
-import org.springframework.context.support.ResourceBundleMessageSource;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import io.reactivex.Observable;
 import xdean.auto.message.AutoMessage;
 
+@RunWith(SpringRunner.class)
+@EnableNestMessageSource
 @AutoMessage(path = "/messages.properties")
 public class NestMessageSourceTest {
-  NestMessageSource source;
-  Locale locale = Locale.getDefault();
 
-  @Before
-  public void setup() throws Exception {
-    ResourceBundleMessageSource ms = new ResourceBundleMessageSource();
-    ms.setBasename("messages");
-    source = new NestMessageSource(ms);
-  }
+  @Autowired
+  MessageSource source;
 
   @Test
   public void test() throws Exception {
@@ -51,6 +49,6 @@ public class NestMessageSourceTest {
   }
 
   private String getMessage(String code, Object... args) {
-    return source.getMessage(code, args, locale);
+    return source.getMessage(code, args, Locale.getDefault());
   }
 }
