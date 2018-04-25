@@ -26,5 +26,6 @@ comment:
   require_changes: no
   
 ignore:
-#generated
-#end
+#generated nest-message-spring-boot
+  - "nest-message-spring-boot/src/main/java/xdean/spring/message/nest/NestMessageSourceProperties.java"
+#end nest-message-spring-boot
